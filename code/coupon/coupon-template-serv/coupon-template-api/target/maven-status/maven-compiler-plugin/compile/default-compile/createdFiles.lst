@@ -1,0 +1,11 @@
+com/geekbang/coupon/template/api/beans/rules/TemplateRule.class
+com/geekbang/coupon/template/api/beans/TemplateSearchParams$TemplateSearchParamsBuilder.class
+com/geekbang/coupon/template/api/beans/CouponTemplateInfo$CouponTemplateInfoBuilder.class
+com/geekbang/coupon/template/api/enums/CouponType.class
+com/geekbang/coupon/template/api/beans/rules/Discount.class
+com/geekbang/coupon/template/api/beans/CouponInfo$CouponInfoBuilder.class
+com/geekbang/coupon/template/api/beans/TemplateSearchParams.class
+com/geekbang/coupon/template/api/beans/PagedCouponTemplateInfo$PagedCouponTemplateInfoBuilder.class
+com/geekbang/coupon/template/api/beans/CouponInfo.class
+com/geekbang/coupon/template/api/beans/CouponTemplateInfo.class
+com/geekbang/coupon/template/api/beans/PagedCouponTemplateInfo.class

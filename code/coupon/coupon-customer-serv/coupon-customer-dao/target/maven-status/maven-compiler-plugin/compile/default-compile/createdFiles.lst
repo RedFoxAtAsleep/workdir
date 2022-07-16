@@ -1,0 +1,4 @@
+com/geekbang/coupon/customer/dao/convertor/CouponStatusConverter.class
+com/geekbang/coupon/customer/dao/CouponDao.class
+com/geekbang/coupon/customer/dao/entity/Coupon.class
+com/geekbang/coupon/customer/dao/entity/Coupon$CouponBuilder.class

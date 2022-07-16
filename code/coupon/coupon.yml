@@ -1,0 +1,69 @@
+version: "3"
+services:
+  postgresdb:
+    #container_name: postgres
+    image: "postgres:14"
+    ports:
+      - 15432:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres} # The PostgreSQL user (useful to connect to the database)
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres} # The PostgreSQL password (useful to connect to the database)
+      POSTGRES_DB: ${POSTGRES_DB:-postgres} # The PostgreSQL default database (automatically created at first launch)
+      PGDATA: /var/lib/postgresql/data/
+    #If you want to use a `.env` file, please comment the `environment` section.
+    #env_file:
+    #  - .env # The name of your environment file (the one at the repository root)
+    volumes:
+      - postgresdb:/var/lib/postgresql/data/
+      #- postgresdb:/var/lib/postgresql/data/
+    restart: unless-stopped
+    deploy:
+      placement:
+          constraints:
+            - node.role == manager
+  pgadmin:
+    image: dpage/pgadmin4:6.11
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-bbxxone@qq.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-Q1w2e3r4}
+    volumes:
+       - pgadmin:/var/lib/pgadmin 
+    deploy:
+      placement:
+          constraints:
+             - node.role == manager
+  redis:
+    image: "redis:7.0.2"
+    restart: unless-stopped
+    ports:
+      - "16379:6379"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+  rabbitmq:
+    image: rabbitmq:3.7.7-management
+    restart: unless-stopped
+    ports:
+      - 4369:4369
+      - 5671:5671
+      - 5672:5672
+      - 15671:15671
+      - 15672:15672
+      - 25672:25672
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq
+    deploy:
+       placement:
+         constraints:
+           - node.role == manager
+volumes:
+  postgresdb:
+  pgadmin:
+  rabbitmq:
