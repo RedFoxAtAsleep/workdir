@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+ 
+    <!-- <preConditions></preConditions>   -->
+
+    <!-- <changeSet  id="xxxxxxxxxxxx"  author="yyy"></changeSet> -->
+    <!-- <changeSet  id="aaaaaaaaaaaa"  author="bbb"></changeSet>    -->
+
+    <changeSet  id="202207160001"  author="coupon" dbms="postgresql, !oracle">  
+        <sqlFile 
+            path="../sql/0.0.0-init-todo.sql"
+            relativeToChangelogFile="true"
+        />
+        <rollback>
+            <sqlFile 
+                path="../sql/0.0.0-init-undo.sql"
+                relativeToChangelogFile="true"
+            />
+        </rollback>  
+    </changeSet>
+    
+</databaseChangeLog>

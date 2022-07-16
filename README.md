@@ -15,4 +15,11 @@ docker stack deploy -c code/coupon/coupon.yml coupon
 #1.13.2.185  15432  postgres    postgres/postgres
 #1.13.2.185  16379  redis
 
+#代码版本管理使用Git
+#数据库对象版本管理使用Liquibase
+#配置Docker、Maven等的镜像
+#mvn spring-boot:run
+
+
+
 ```
