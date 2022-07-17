@@ -1,0 +1,54 @@
+version: "3"
+services:
+  nextcloud:
+    image: "nextcloud:24-apache"
+    ports:
+      - 6080:80
+    volumes:
+      - nextcloud:/var/www/html
+      - nextcloud-apps:/var/www/html/custom_apps
+      - nextcloud-config:/var/www/html/config
+      - nextcloud-data:/var/www/html/data
+      - nextcloud-themes:/var/www/html/themes
+    restart: unless-stopped
+    deploy:
+      placement:
+          constraints:
+            - node.role == manager
+  onlyoffice:
+    image: onlyoffice/documentserver:7.1
+    restart: unless-stopped
+    ports:
+      - 5080:80
+    volumes:
+       - onlyoffice-document-server-log:/var/log/onlyoffice
+       - onlyoffice-document-server-data:/var/www/onlyoffice/Data
+    deploy:
+      placement:
+          constraints:
+             - node.role == manager
+  postgresdb:
+    image: "postgres:14"
+    ports:
+      - 25432:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      PGDATA: /var/lib/postgresql/data/
+    volumes:
+      - postgresdb:/var/lib/postgresql/data/
+    restart: unless-stopped
+    deploy:
+      placement:
+          constraints:
+            - node.role == manager
+volumes:
+  nextcloud:
+  nextcloud-apps:
+  nextcloud-config:
+  nextcloud-data:
+  nextcloud-themes:
+  onlyoffice-document-server-log:
+  onlyoffice-document-server-data:
+  postgresdb:
