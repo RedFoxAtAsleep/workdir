@@ -40,11 +40,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--        <dependency>-->
-<!--            <groupId>${project.groupId}</groupId>-->
-<!--            <artifactId>coupon-template-api</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--        </dependency>-->
+        <!-- <dependency>
+           <groupId>${project.groupId}</groupId>
+           <artifactId>coupon-template-api</artifactId>
+           <version>${project.version}</version>
+       </dependency> -->
     </dependencies>
 
     <build>
@@ -52,13 +52,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
+                <!-- <executions>
                     <execution>
+                        <id>repackage</id>
                         <goals>
                             <goal>repackage</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions> -->
+                <!-- When using spring-boot-starter-parent, inherit spring-boot-maven-plugin from it -->
+                <configuration>
+                    <!-- <mainClass>${start-class}</mainClass> -->
+                    <!-- <profiles>${targetProfiles}</profiles> -->
+                </configuration>
             </plugin>
         </plugins>
     </build>

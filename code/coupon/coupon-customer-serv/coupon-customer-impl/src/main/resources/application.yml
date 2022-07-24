@@ -8,12 +8,12 @@ spring:
   application:
     name: coupon-customer-serv
   datasource:
-    # mysql数据源
-    username: root
-#    password:
-    url: jdbc:mysql://127.0.0.1:3306/geekbang_coupon_db?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+    # 数据源
+    username: coupon
+    password: coupon
+    url: jdbc:postgresql://1.13.2.185:15432/postgres
     type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
     # 连接池
     hikari:
       pool-name: GeekbangCouponHikari
