@@ -9,7 +9,7 @@ spring:
     # 定义项目名称
     name: coupon-template-serv
   datasource:
-    # mysql数据源
+    # 数据源
     username: coupon
     password: coupon
     url: jdbc:postgresql://1.13.2.185:15432/postgres
