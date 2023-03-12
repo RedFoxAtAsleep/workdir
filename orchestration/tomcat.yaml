@@ -85,7 +85,7 @@ spec:
       port:
         number: 30080
   rules:
-    - host: ricee.top
+    - host: 1.13.2.185
       http:
         paths:
             - path: /
